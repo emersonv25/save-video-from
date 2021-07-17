@@ -1,2 +1,2 @@
-# Meguinha-Downloader-Front
-Frontend do projeto meguinha downloader
+# Video-Downloader-Front
+Frontend do projeto video downloader
