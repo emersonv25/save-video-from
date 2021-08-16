@@ -1,0 +1,28 @@
+{
+  "name": "Video-Downloader-Api",
+  "version": "1.0.0",
+  "description": "Api do projeto meguinha downloader",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon server",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/emersonv25/Video-Downloader-Api.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/emersonv25/Video-Downloader-Api/issues"
+  },
+  "homepage": "https://github.com/emersonv25/Video-Downloader-Api#readme",
+  "dependencies": {
+    "config": "^3.3.6",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "nodemon": "^2.0.12",
+    "youtube-dl-exec": "^1.2.4"
+  }
+}
