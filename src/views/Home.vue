@@ -15,8 +15,11 @@
               ></v-text-field>
             </v-col>
             <v-card-actions class="align-end justify-center">
-              <v-btn large color="blue" outlined> <v-icon left>mdi-download</v-icon> Baixar </v-btn>
+              <v-btn large @click="getDetalhes" color="blue" outlined> <v-icon left>mdi-download</v-icon> Baixar </v-btn>
+              <v-btn large @click="getDownload" color="blue" outlined> <v-icon left>mdi-download</v-icon> Baixar </v-btn>
             </v-card-actions>
+            <v-card-text>{{detalhes}}</v-card-text>
+            <v-card-text>{{download}}</v-card-text>
           </v-card>
         </v-col>
       </v-row>
@@ -25,14 +28,30 @@
 </template>
 
 <script>
-//import axios from 'axios';
 
 export default {
   name: "Home",
-  data: () => ({
-    url: '',
-  }),
-  methods: {
+  data: function () {
+    return {
+      url: '',
+      quality: 'hd'
+    }
   },
+  methods: {
+    async getDetalhes(){
+      await this.$store.dispatch('getDetalhes', this.url)
+    },
+    async getDownload(){
+      await this.$store.dispatch('getDownload', {url: this.url, quality: this.quality})
+    }
+  },
+  computed: {
+    detalhes(){
+      return this.$store.state.detalhes
+    },
+    download(){
+      return this.$store.state.download
+    }
+  }
 };
 </script>

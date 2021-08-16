@@ -6,7 +6,7 @@
       <v-container>
         <v-row>
           <v-col>
-            <Home/>
+            <router-view />
           </v-col>
         </v-row>       
       </v-container>     
@@ -18,13 +18,11 @@
 <script>
 import Navbar from '@/components/Navbar.vue'
 import Footer from '@/components/Footer.vue'
-import Home from '@/views/Home.vue'
 export default {
   name: 'App',
   components: {
     Navbar,
     Footer,
-    Home
   },
 
 }

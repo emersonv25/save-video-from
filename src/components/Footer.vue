@@ -6,7 +6,7 @@
     >
        Projeto opensource criado por <strong> <a href="https://github.com/emersonv25" class="blue--text">emersonv25</a> </strong> 
        <br>
-       O código fonte está disponível em <strong> <a href="https://github.com/emersonv25/QrCode-Vue" class="blue--text">QrCode-Vue</a>  </strong> 
+       O código fonte está disponível em <strong> <a href="https://github.com/emersonv25/Video-Downloader-Front" class="blue--text">Video-Downloader</a>  </strong> 
 
     </v-col>
 
