@@ -1,2 +1,2 @@
 # Video-Downloader-Api
-Api do projeto meguinha downloader
+Api do projeto video=downloader
