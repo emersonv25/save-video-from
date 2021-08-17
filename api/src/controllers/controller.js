@@ -1,19 +1,9 @@
 const youtubedl = require('youtube-dl-exec')
-
-exports.download = (req, res) => {
+const ytdl = require('ytdl-core');
+exports.download = async (req, res) => {
   if(req.query.url){
     if(req.query.quality == 'hd'){
       youtubedl(req.query.url, {
-        //dumpSingleJson: true,
-        //dumpJson: true,
-        //noWarnings: true,
-        //noCallHome: true,
-        //noCheckCertificate: true,
-        //preferFreeFormats: true,
-        //listFormats: true,
-        //youtubeSkipDashManifest: true,
-        //format: '(best)[protocol^=https]',
-        //format: 'best[height<=?720][protocol^=http]',
         format: 'best[protocol^=http]',
         getUrl: true,
       }).then(output => res.status(200).send(output))
@@ -24,35 +14,28 @@ exports.download = (req, res) => {
       getUrl: true,
     }).then(output => res.status(200).send(output))
   }
-    //.then(output => res.status(200).send(output))
+  if(req.query.quality == 'audio'){
+    youtubedl(req.query.url, {
+      format: 'bestaudio[protocol^=http]',
+      getUrl: true,
+    }).then(output => res.status(200).send(output))
+  }
   }
 };
 exports.detalhes = (req, res) => {
-  console.clear()
   if(req.query.url){
     youtubedl(req.query.url, {
-      //dumpSingleJson: true,
-      //getTitle: true,
-      //getThumbnail: true,
-      //getDescription: true,
-      //getFormat: true,
-      //skipDownload: true,
-
-      //getFilename: true,
       dumpJson: true,
-      //noWarnings: true,
-      //noCallHome: true,
-      //noCheckCertificate: true,
-      //preferFreeFormats: true,
-      //listFormats: true,
-      //youtubeSkipDashManifest: true,
-      //format: '(best)[protocol^=https]',
-      //format: 'best[height<=?720][protocol^=http]',
-      //format: 'best[protocol^=http]',
-      //getUrl: true,
     }).then(output => res.status(200).send(output))
   }
 }
+exports.download2 = (req, res) => {
+  var url = req.query.url;    
+  res.header("Content-Disposition", 'attachment;\  filename="Video.mp4');    
+  ytdl(url, {format: 'mp4'}).pipe(res);
+}
+
+
 
 
 //https://github.com/ytdl-org/youtube-dl/blob/master/README.md

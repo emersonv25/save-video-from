@@ -7,6 +7,7 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     detalhes: {},
+    exibirDetalhes: false,
     download: ''
   },
   getters: {
@@ -15,6 +16,7 @@ export default new Vuex.Store({
   mutations: {
     set_detalhes (state, detalhes){
       state.detalhes = detalhes
+      state.exibirDetalhes = true
     },
     set_download (state, download){
       state.download = download
@@ -23,6 +25,7 @@ export default new Vuex.Store({
   },
   actions: {
     getDetalhes({commit}, url) {
+      let detalhes = {}
       return new Promise((resolve, reject) => {
         axios.get('http://localhost:3000/detalhes/', {
             params: {
@@ -30,7 +33,9 @@ export default new Vuex.Store({
             }
           })
           .then(function (resp) {
-            commit('set_detalhes', resp.data);
+            detalhes = resp.data
+            commit('set_detalhes', detalhes);
+            
             resolve(resp)
           })
           .catch(function (error) {
