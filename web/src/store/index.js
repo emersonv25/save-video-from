@@ -8,7 +8,9 @@ export default new Vuex.Store({
   state: {
     detalhes: {},
     exibirDetalhes: false,
-    download: ''
+    video: '',
+    error: '',
+    errorDownload: ''
   },
   getters: {
 
@@ -18,35 +20,53 @@ export default new Vuex.Store({
       state.detalhes = detalhes
       state.exibirDetalhes = true
     },
-    set_download (state, download){
-      state.download = download
+    set_download (state, video){
+      state.video = video
+    },
+    set_error(state, error){
+      state.error = error
+    },
+    set_errorDownload(state, error){
+      state.errorDownload = error
+    },
+    clear(state){
+      state.error = ''
+      state.video = ''
+      state.detalhes = {}
+      state.exibirDetalhes = false
+    },
+    clear_download(state){
+      state.video = ''
+      state.errorDownload = ''
     }
 
   },
   actions: {
     getDetalhes({commit}, url) {
       let detalhes = {}
+      commit('clear')
       return new Promise((resolve, reject) => {
-        axios.get('http://localhost:3000/detalhes/', {
+        axios.get('http://192.168.0.108:3000/getinfo/', {
             params: {
               url: url,
             }
           })
           .then(function (resp) {
             detalhes = resp.data
+            console.log(detalhes)
             commit('set_detalhes', detalhes);
-            
             resolve(resp)
           })
           .catch(function (error) {
-            console.log(error);
+            commit('set_error', 'Endereço <b>inválido</b> ou <b>não suportado</b>')
             reject(error)
         })
       })
     },
     getDownload({commit}, payload){
+      commit('clear_download')
       return new Promise((resolve, reject) => {
-        axios.get('http://localhost:3000/download/', {
+        axios.get('http://192.168.0.108:3000/geturl/', {
             params: {
               url: payload.url,
               quality: payload.quality
@@ -57,7 +77,7 @@ export default new Vuex.Store({
             resolve(resp)
           })
           .catch(function (error) {
-            console.log(error);
+            commit('set_errorDownload', 'Download não suportado')
             reject(error)
         })
       })
