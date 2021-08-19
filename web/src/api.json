@@ -1,4 +1,4 @@
 {
     "local": "http://localhost:3000",
-    "server": "'https://pk-video-api.herokuapp.com"
+    "server": "https://pk-video-api.herokuapp.com"
 }
