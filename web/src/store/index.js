@@ -1,6 +1,10 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import axios from 'axios'
+import api from '../api.json'
+
+const apiUrl = api.local
+//const apiUrl = api.server
 
 Vue.use(Vuex)
 
@@ -46,19 +50,18 @@ export default new Vuex.Store({
       let detalhes = {}
       commit('clear')
       return new Promise((resolve, reject) => {
-        axios.get('http://192.168.0.108:3000/getinfo/', {
+        axios.get(apiUrl + '/getinfo/', {
             params: {
               url: url,
             }
           })
           .then(function (resp) {
             detalhes = resp.data
-            console.log(detalhes)
             commit('set_detalhes', detalhes);
             resolve(resp)
           })
           .catch(function (error) {
-            commit('set_error', 'Endereço <b>inválido</b> ou <b>não suportado</b>')
+            commit('set_error', 'Endereço inválido ou não suportado')
             reject(error)
         })
       })
@@ -66,7 +69,7 @@ export default new Vuex.Store({
     getDownload({commit}, payload){
       commit('clear_download')
       return new Promise((resolve, reject) => {
-        axios.get('http://192.168.0.108:3000/geturl/', {
+        axios.get(apiUrl + '/geturl/', {
             params: {
               url: payload.url,
               quality: payload.quality
