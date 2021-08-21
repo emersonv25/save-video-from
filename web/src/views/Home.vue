@@ -68,9 +68,9 @@
  
               <v-card-actions>
                 <v-spacer></v-spacer>
-                <v-btn large @click="getDownload('hd')" color="blue" outlined :disabled="loadingDownload"><v-icon left>mdi-download</v-icon> HD</v-btn>
-                <v-btn large @click="getDownload('sd')" color="blue" outlined :disabled="loadingDownload" style="margin-left: 5px"><v-icon left>mdi-download</v-icon> SD</v-btn>
-                <v-btn large @click="getDownload('audio')" color="blue" outlined :disabled="loadingDownload || url.includes('instagram')" style="margin-left: 5px"><v-icon left>mdi-download</v-icon> Áudio</v-btn>              
+                <v-btn large @click="getDownload('best')" color="blue" outlined :disabled="loadingDownload"><v-icon left>mdi-download</v-icon> HD</v-btn>
+                <v-btn large @click="getDownload('worst')" color="blue" outlined :disabled="loadingDownload" style="margin-left: 5px"><v-icon left>mdi-download</v-icon> SD</v-btn>
+                <v-btn large @click="getDownload('bestaudio')" color="blue" outlined :disabled="loadingDownload || url.includes('instagram')" style="margin-left: 5px"><v-icon left>mdi-download</v-icon> Áudio</v-btn>              
                 <v-spacer></v-spacer>
               </v-card-actions>              
               
@@ -150,12 +150,15 @@ export default {
       this.loadingDownload = true
       try{
         await this.$store.dispatch("getDownload", {url: this.url, quality: quality})
-        if(this.video.includes('googlevideo') && quality == 'hd'){
+        if(this.video.includes('googlevideo') && quality == 'best'){
           window.open(this.video + '&title=' + this.detalhes.fulltitle)
-        }
+        }/*
         else if(this.video.includes('instagram') || this.video.includes('facebook')){
           window.open(this.video + '&dl=1')
-        }        
+        }     */
+        else{
+          window.open(this.video + '&dl=1')
+        }   
         this.loadingDownload = false
       }
       catch{
