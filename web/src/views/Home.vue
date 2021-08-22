@@ -105,7 +105,6 @@
             </v-card-actions>
             <v-card-title>Caso o download não inicie, siga as instruções para baixar</v-card-title>
             <v-card-text>
-
               <b>Opção 1:</b> Aperte no botão: <v-icon>mdi-dots-vertical</v-icon> Em seguida selecione a opção: <v-icon>mdi-download</v-icon> Baixar (De acordo com seu navegador)
               <br>           
               <b>Opção 2:</b> Botão direito sobre o vídeo e em seguida: Salvar video/áudio como...
@@ -152,20 +151,15 @@ export default {
         await this.$store.dispatch("getDownload", {url: this.url, quality: quality})
         if(this.video.includes('googlevideo') && quality == 'best'){
           window.open(this.video + '&title=' + this.detalhes.fulltitle)
-        }/*
-        else if(this.video.includes('instagram') || this.video.includes('facebook')){
+        }
+        else if(this.video.includes('instagram') || this.video.includes('facebook') || this.video.includes('fbcdn')){
           window.open(this.video + '&dl=1')
-        }     */
-        else{
-          window.open(this.video + '&dl=1')
-        }   
+        } 
         this.loadingDownload = false
       }
       catch{
         this.loadingDownload = false
       }
-      
-      
       //window.open(this.video)
     },
     convertDuration(value) {

@@ -3,8 +3,8 @@ import Vuex from 'vuex'
 import axios from 'axios'
 import api from '../api.json'
 
-const apiUrl = api.local
-//const apiUrl = api.server
+//const apiUrl = api.local
+const apiUrl = api.server
 
 Vue.use(Vuex)
 
