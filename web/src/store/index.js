@@ -3,8 +3,8 @@ import Vuex from 'vuex'
 import axios from 'axios'
 import api from '../api.json'
 
-const apiUrl = api.local
-//const apiUrl = api.server
+//const apiUrl = api.local
+const apiUrl = api.server
 
 Vue.use(Vuex)
 
@@ -14,12 +14,16 @@ export default new Vuex.Store({
     exibirDetalhes: false,
     video: '',
     error: '',
-    errorDownload: ''
+    errorDownload: '',
+    url: ''
   },
   getters: {
 
   },
   mutations: {
+    set_url(state, url){
+      state.url = url
+    },
     set_detalhes (state, detalhes){
       state.detalhes = detalhes
       state.exibirDetalhes = true
