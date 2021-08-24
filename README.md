@@ -1,4 +1,8 @@
 # Video-Downloader
-Sistema de download de videos da internet. backend em node.js e frontend em vuejs
+Downloader de vídeos da internet.
+Backend desenvolvido em Node.js e utilizando a biblioteca youtube-dl-exec
+Frontend desenvolvido em Vue.js e vuetify
 
 DEMO: https://savevideofrom.web.app/#/
+
+
