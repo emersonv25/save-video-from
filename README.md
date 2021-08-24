@@ -1,5 +1,5 @@
 # Video-Downloader
-Downloader de vídeos da internet.
+Um Downloader de vídeos da internet através de sua url.
 
 Backend desenvolvido em Node.js e utilizando a biblioteca youtube-dl-exec
 
