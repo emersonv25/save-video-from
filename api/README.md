@@ -20,10 +20,12 @@ npm start
 
 ### API
 
-#### /getinfo/
+
+
+** /getinfo/ **
 Retorna as informações de um vídeo
 Parâmetros: url= {URL do vídeo}
 
-#### /geturl/
+** /geturl/ **
 Retorna a url da raiz do vídeo
 Parâmetros: url= {URL} & quality=(best, worst ou bestaudio)
