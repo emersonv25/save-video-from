@@ -7,4 +7,6 @@ Frontend desenvolvido em Vue.js e vuetify
 
 DEMO: https://savevideofrom.web.app/#/
 
+## Disclaimer
+This software is not to be used to violate any laws.
 
