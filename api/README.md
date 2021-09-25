@@ -16,6 +16,8 @@ npm install
 ### Iniciar o servidor de desenvolvimento
 ```
 npm start
+Ou
+nodemon server.js
 ```
 
 ### API
