@@ -9,7 +9,7 @@
         >
           <v-row style="margin: 5px">
             <v-col cols="12" sm="4" md="4">
-              <v-img :src="detalhes.thumbnail"></v-img>
+              <img :src="detalhes.thumbnail" style="width: 100%; max-height: 150px;">
             </v-col>
             <v-col cols="12" sm="8" md="8">
               <v-card-title>{{ detalhes.fulltitle }}</v-card-title>

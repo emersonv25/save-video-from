@@ -4,7 +4,7 @@
       <v-col cols="12">
         <v-card class="mx-auto" max-width="800" max-height="600">
           <v-card-title class="text--primary justify-center">
-            Video Downloader
+            Save Video From
           </v-card-title>
           <v-col cols="12" sm="12" md="12">
             <v-form ref="form" v-model="valid">
@@ -17,7 +17,9 @@
                 :rules="[(v) => !!v || 'Insira o link']"
                 style="margin-bottom: 0px; padding-bottom: 0px"
               ></v-text-field>
-            <v-card-text class="caption text-center" style="margin: 0px; padding: 0px">Ao utilizar este serviço, você concorda com nossos <a>termos de uso</a> </v-card-text>
+              
+            <v-card-text class="caption text-center" style="margin: 0px; padding: 0px">Ao utilizar este serviço, você concorda com nossos <router-link to="/termos">termos de uso</router-link> </v-card-text>
+            
             </v-form>
           </v-col>
           <v-card-actions class="align-end justify-center">
