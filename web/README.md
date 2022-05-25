@@ -2,6 +2,7 @@
 
 **Visão Geral do Projeto**
 
+Frontend construido utilizando Vue.js
 
 ## Pre-Requisito: 
 
